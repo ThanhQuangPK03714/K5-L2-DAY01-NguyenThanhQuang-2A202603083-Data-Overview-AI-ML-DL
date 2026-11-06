@@ -87,21 +87,10 @@ Lab hôm nay chỉ **xem prediction**. Chuỗi dưới đây là vòng đời pr
 
 ## 5. An toàn dữ liệu
 
-1. Quy tắc bảo vệ dữ liệu của bạn cho bài lab này là gì? Tuyệt đối không đưa thông tin định danh cá nhân (họ tên, MSSV, email, số điện thoại) vào báo cáo hay tệp output cấu trúc, chỉ đặt tên trong repository.
-2. Nếu gặp ảnh hoặc dữ liệu không đúng phạm vi, bạn sẽ dừng và báo cho ai? Dừng lại và báo cáo trực tiếp cho Lab Coach.
+1. Quy tắc bảo vệ dữ liệu của bạn cho bài lab này là Tuyệt đối không đưa thông tin định danh cá nhân (họ tên, MSSV, email, số điện thoại) vào báo cáo hay tệp output cấu trúc, chỉ đặt tên trong repository.
+2. Nếu gặp ảnh hoặc dữ liệu không đúng phạm vi, bạn sẽ dừng và báo cáo trực tiếp cho Lab Coach hoặc thầy cô.
 
 ## 6. Checklist trước khi nộp link repo
 
 Kiểm tra trên GitHub trong thư mục `report/`:
 
-- [x] `REPORT.md` (file này đã điền)
-- [x] `day1_lab_outputs/classification_predictions.json`
-- [x] `day1_lab_outputs/detection_predictions.json`
-- [x] `day1_lab_outputs/segmentation_predictions.json`
-- [x] `day1_lab_outputs/IMAGE_ATTRIBUTION.md`
-- [x] `day1_lab_outputs/visuals/classification_top5.png`
-- [x] `day1_lab_outputs/visuals/detection_predictions.png`
-- [x] `day1_lab_outputs/visuals/segmentation_prediction.png`
-- [x] Ô validation cuối notebook báo `PASS`
-- [x] Không có họ tên, MSSV hoặc dữ liệu nhạy cảm trong báo cáo/output
-- [x] Đã nộp **link repository** trên LMS
