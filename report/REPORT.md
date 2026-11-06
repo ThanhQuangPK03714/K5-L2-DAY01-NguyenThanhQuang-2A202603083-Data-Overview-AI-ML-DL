@@ -53,8 +53,8 @@ Chỉ dùng ảnh `sample_id = traffic`, lấy dòng `rank = 1`.
 Chỉ dùng ảnh `sample_id = kitchen`. Chọn **một** record.  
 Số lượng prediction theo ngưỡng: xem output ô so sánh `0.20` / `0.35` / `0.60` trong notebook.
 
-1. Chép một record mẫu từ kết quả `kitchen` trong JSON: `class_name`=`cup/bowl (hoặc vật thể thực tế theo JSON)` ; `score`=`[Giá trị score từ file JSON]` ; `bbox_xyxy`=`[x_min, y_min, x_max, y_max]` ; `bbox_width`=`[Chiều rộng pixel]` ; `bbox_height`=`[Chiều cao pixel]`
-2. Giải thích box bằng lời thường: `bbox_xyxy = [x_min, y_min, x_max, y_max]` trong đó `(x_min, y_min)` là góc trên-trái, `(x_max, y_max)` là góc dưới-phải tính theo pixel; chiều rộng bằng `x_max - x_min` và chiều cao bằng `y_max - y_min`.
+1. Chép một record mẫu từ kết quả `kitchen` trong JSON: `class_name`=`bowl` ; `score`=`0.464904` ; `bbox_xyxy`=`[155.76, 113.58, 173.98, 130.13]` ; `bbox_width`=`18.22` ; `bbox_height`=`16.54`
+2. Giải thích box bằng lời thường: `bbox_xyxy = [155.76, 113.58, 173.98, 130.13]` trong đó góc trên-trái có tọa độ `(155.76, 113.58)`, góc dưới-phải có tọa độ `(173.98, 130.13)` tính theo pixel; chiều rộng hộp là `18.22` pixel và chiều cao hộp là `16.54` pixel.
 3. Số lượng prediction theo các ngưỡng (`0.20`, `0.35`, `0.60`): Lấy trực tiếp từ 3 dòng log in ra ở ô so sánh threshold trong notebook của ảnh kitchen.
 4. Khi hạ ngưỡng (giữ nhiều hộp hơn), reviewer phải kiểm tra thêm các hộp nhiễu, hộp trùng, phân loại sai, vật thể bị bỏ sót và độ chính xác của vị trí box để quyết định giữ, sửa hoặc loại bỏ prediction theo guideline.
 5. Quy tắc box đề xuất: Vẽ một bounding box bao sát phần nhìn thấy của từng vật thể thuộc lớp mục tiêu sao cho các cạnh chạm sát biên ngoài của vật thể, không cố đoán phần bị che khuất và không lấy quá nhiều nền xung quanh.
@@ -65,7 +65,7 @@ Số lượng prediction theo ngưỡng: xem output ô so sánh `0.20` / `0.35` 
 **Mở file:** `day1_lab_outputs/segmentation_predictions.json` và `visuals/segmentation_prediction.png`.  
 Chỉ dùng ảnh `sample_id = kitchen`. Chọn **một** record.
 
-1. Chép một record mẫu từ JSON segmentation của ảnh `kitchen`: `instance_id`=`kitchen-001` ; `class_name`=`[Tên lớp trong JSON]` ; `score`=`[Điểm số score]` ; số điểm polygon=`polygon_point_count`=`[Số lượng điểm]` ; 3–5 điểm đầu của `polygon_xy`=`[[x1, y1], [x2, y2], [x3, y3], ...]`
+1. Chép một record mẫu từ JSON segmentation của ảnh `kitchen`: `instance_id`=`kitchen-001` ; `class_name`=`bowl` ; `score`=`0.464904` ; số điểm polygon=`polygon_point_count`=`12` ; 3–5 điểm đầu của `polygon_xy`=`[[155.76, 113.58], [173.98, 113.58], [173.98, 130.13], [155.76, 130.13]]`
 2. So với box chữ nhật, polygon chứa các điểm tọa độ bám theo đường biên thực tế của vật thể, giúp thể hiện chính xác hình dạng, phần lồi/lõm và vùng chiếm chỗ thay vì khoanh vùng chữ nhật chứa nhiều pixel nền.
 3. `instance_id` dùng làm mã định danh riêng cho từng đối tượng cụ thể trong output (ví dụ: `kitchen-001`) để phân biệt các instance ngay cả khi cùng class_name; nó không phải `class_id` (mã loại lớp) cũng không phải tracking ID (mã theo dõi qua các khung hình/video).
 4. Quy tắc vẽ biên mask đề xuất: Vẽ polygon theo đường biên của phần vật thể nhìn thấy, đặt các điểm đủ sát để mô tả hình dạng nhưng không lấn sang nền hoặc vật thể bên cạnh; mỗi vật thể là một instance riêng biệt kể cả khi cùng lớp.
@@ -94,3 +94,14 @@ Lab hôm nay chỉ **xem prediction**. Chuỗi dưới đây là vòng đời pr
 
 Kiểm tra trên GitHub trong thư mục `report/`:
 
+- [x] `REPORT.md` (file này đã điền)
+- [x] `day1_lab_outputs/classification_predictions.json`
+- [x] `day1_lab_outputs/detection_predictions.json`
+- [x] `day1_lab_outputs/segmentation_predictions.json`
+- [x] `day1_lab_outputs/IMAGE_ATTRIBUTION.md`
+- [x] `day1_lab_outputs/visuals/classification_top5.png`
+- [x] `day1_lab_outputs/visuals/detection_predictions.png`
+- [x] `day1_lab_outputs/visuals/segmentation_prediction.png`
+- [x] Ô validation cuối notebook báo `PASS`
+- [x] Không có họ tên, MSSV hoặc dữ liệu nhạy cảm trong báo cáo/output
+- [x] Đã nộp **link repository** trên LMS
